@@ -55,7 +55,7 @@ const mockPaymentHistory: PaymentHistory[] = [
 export function PaymentHistoryComponent() {
   const [searchTerm, setSearchTerm] = useState("")
   const [statusFilter, setStatusFilter] = useState<string>("all")
-  const [filteredHistory, setFilteredHistory] = useState(mockPaymentHistory)
+  const filteredHistory = mockPaymentHistory
 
   const getStatusIcon = (status: string) => {
     switch (status) {

@@ -28,12 +28,7 @@ export function Sidebar({ className }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  // Only allow collapse on desktop
-  const handleCollapse = () => {
-    if (window.innerWidth >= 640) {
-      setIsCollapsed(!isCollapsed)
-    }
-  }
+
 
   return (
     <div className="relative">

@@ -14,7 +14,6 @@ export default function PaymentsPage() {
 
   const handlePaymentComplete = (response: PaymentResponse) => {
     console.log("Payment completed:", response)
-    // Handle payment completion (e.g., refresh data, show notification)
   }
 
   return (
@@ -97,7 +96,6 @@ export default function PaymentsPage() {
         <TabsContent value="new-payment" className="space-y-4">
           <UPIPayment
             teacherName="Mr. Suraj"
-            teacherId="T001"
             defaultAmount={5000}
             paymentType="salary"
             onPaymentComplete={handlePaymentComplete}

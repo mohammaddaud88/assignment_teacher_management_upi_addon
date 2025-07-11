@@ -264,7 +264,14 @@ export function TeacherProfileComponent({ teacher }: TeacherProfileProps) {
               <CardTitle>Weekly Schedule</CardTitle>
             </CardHeader>
             <CardContent>
-              <WeeklySchedule schedule={teacher.schedule} />
+              <WeeklySchedule 
+                schedule={teacher.schedule.map(slot => ({
+                  day: slot.day,
+                  time: `${slot.startTime} - ${slot.endTime}`,
+                  type: slot.type === "scheduled" ? "class" : "available",
+                  status: slot.type
+                }))}
+              />
             </CardContent>
           </Card>
         </TabsContent>
@@ -284,7 +291,14 @@ export function TeacherProfileComponent({ teacher }: TeacherProfileProps) {
   )
 }
 
-function WeeklySchedule({ schedule }: { schedule: any[] }) {
+interface ScheduleItem {
+  day: string
+  time: string
+  type: string
+  status: string
+}
+
+function WeeklySchedule({ schedule }: { schedule: ScheduleItem[] }) {
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
   const timeSlots = [
     "7:30am",

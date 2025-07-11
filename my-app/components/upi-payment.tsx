@@ -64,11 +64,10 @@ interface UPIPaymentProps {
 
 export function UPIPayment({
   teacherName,
-  teacherId,
   defaultAmount = 0,
   paymentType = "salary",
   onPaymentComplete,
-}: UPIPaymentProps) {
+}: Omit<UPIPaymentProps, 'teacherId'>) {
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>(paymentMethods[0])
   const [selectedUPIProvider, setSelectedUPIProvider] = useState<UPIProvider | null>(null)
   const [amount, setAmount] = useState(defaultAmount.toString())
@@ -82,11 +81,11 @@ export function UPIPayment({
   const [showConfirmDialog, setShowConfirmDialog] = useState(false)
 
   const processingSteps = [
-    "Validating payment details...",
-    "Connecting to payment gateway...",
-    "Processing payment...",
-    "Confirming transaction...",
-  ]
+    "Initiating payment...",
+    "Processing transaction...",
+    "Verifying payment...",
+    "Payment successful!",
+  ] as const
 
   useEffect(() => {
     if (isProcessing) {
@@ -270,7 +269,11 @@ export function UPIPayment({
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto space-y-6 px-2 sm:px-4 lg:px-6">
+    <div className="space-y-6">
+      <div className="space-y-4">
+        <h2 className="text-xl font-semibold">Make Payment</h2>
+        <p className="text-muted-foreground">Send payment to {teacherName}</p>
+      </div>
       {/* Payment Header */}
       <Card>
         <CardHeader>
