@@ -52,6 +52,15 @@ export function Sidebar({ className }: SidebarProps) {
             >
               <X className="h-4 w-4" />
             </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              className="text-white hover:bg-slate-800 p-2 rounded-full ml-2"
+              title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
+            >
+              <Menu className="h-4 w-4" />
+            </Button>
           </div>
         </div>
 

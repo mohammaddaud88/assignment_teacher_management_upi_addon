@@ -342,13 +342,17 @@ function WeeklySchedule({ schedule }: { schedule: ScheduleItem[] }) {
             <div className="p-2 text-sm text-muted-foreground text-right border-r">{time}</div>
             {days.map((day) => (
               <div key={`${day}-${time}`} className="p-1 border border-slate-200 min-h-[40px] relative">
-                {/* Sample scheduled sessions */}
-                {day === "Tuesday" && time === "3pm" && (
-                  <div className="absolute inset-1 bg-green-200 rounded text-xs p-1 text-green-800">Math Class</div>
-                )}
-                {day === "Thursday" && (time === "2pm" || time === "2:30pm") && (
-                  <div className="absolute inset-1 bg-green-200 rounded text-xs p-1 text-green-800">Physics</div>
-                )}
+                {schedule.map((item) => {
+                  const [startTime, endTime] = item.time.split(' - ')
+                  if (item.day === day && startTime === time) {
+                    return (
+                      <div key={item.day + item.time} className="absolute inset-1 bg-green-200 rounded text-xs p-1 text-green-800">
+                        {item.type} - {item.status}
+                      </div>
+                    )
+                  }
+                  return null
+                })}
               </div>
             ))}
           </div>
