@@ -259,7 +259,7 @@ export function UPIPayment({
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
               <div className="flex items-center space-x-2">
                 <AlertCircle className="h-4 w-4 text-amber-600" />
-                <p className="text-xs text-amber-800">Please don't close this window or navigate away</p>
+                <p className="text-xs text-amber-800">Please don&apos;t close this window or navigate away</p>
               </div>
             </div>
           </div>
