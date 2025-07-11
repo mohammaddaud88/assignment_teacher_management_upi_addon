@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -10,7 +9,6 @@ import { CreditCard, Plus, TrendingUp, Users, DollarSign } from "lucide-react"
 import type { PaymentResponse } from "@/lib/payment-types"
 
 export default function PaymentsPage() {
-  const [showNewPayment, setShowNewPayment] = useState(false)
   const handlePaymentComplete = (response: PaymentResponse) => {
     console.log("Payment completed:", response)
   }
@@ -21,7 +19,6 @@ export default function PaymentsPage() {
         <h1 className="text-3xl font-bold tracking-tight">Payment Management</h1>
         <p className="text-muted-foreground">Manage teacher payments and view transaction history</p>
       </div>
-
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -84,13 +81,12 @@ export default function PaymentsPage() {
           </div>
 
           <div className="flex justify-center sm:justify-end w-full sm:w-auto">
-            <Button onClick={() => setShowNewPayment(true)} size="sm">
+            <Button size="sm">
               <Plus className="h-3 w-3 mr-2" />
               Quick Pay
             </Button>
           </div>
         </div>
-
 
         <TabsContent value="new-payment" className="space-y-4">
           <UPIPayment
