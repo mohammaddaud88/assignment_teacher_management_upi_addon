@@ -117,7 +117,7 @@ export function UPIPayment({
 
       return () => clearInterval(interval)
     }
-  }, [isProcessing, onPaymentComplete, processingStep])
+  }, [isProcessing, onPaymentComplete, processingStep, processingSteps.length])
 
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {}
