@@ -10,8 +10,6 @@ import { CreditCard, Plus, TrendingUp, Users, DollarSign } from "lucide-react"
 import type { PaymentResponse } from "@/lib/payment-types"
 
 export default function PaymentsPage() {
-  const [showNewPayment, setShowNewPayment] = useState(false)
-
   const handlePaymentComplete = (response: PaymentResponse) => {
     console.log("Payment completed:", response)
   }

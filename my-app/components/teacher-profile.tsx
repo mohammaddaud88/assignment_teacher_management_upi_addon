@@ -347,7 +347,7 @@ function WeeklySchedule({ schedule }: { schedule: ScheduleItem[] }) {
                   if (item.day === day && startTime === time) {
                     return (
                       <div key={item.day + item.time} className="absolute inset-1 bg-green-200 rounded text-xs p-1 text-green-800">
-                        {item.type} - {item.status}
+                        {item.type} - {item.status} ({startTime} - {endTime})
                       </div>
                     )
                   }
